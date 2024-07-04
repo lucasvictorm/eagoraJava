@@ -1,4 +1,10 @@
 .borda-preta{
-	-fx-border-color: black;
-	-fx-border-width: 2px;
+	-fx-background-color: white;
+	-fx-border-radius: 10px;
 }
+
+.titulo{
+	-fx-font-weight: bold;
+	-fx-font-size: 14;
+}
+
