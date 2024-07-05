@@ -41,7 +41,7 @@ public class SessaoFornecedor {
     }
     
     
-    public void setCategorias(String cat){
-    	this.categorias.add(cat);
+    public void setCategorias(List<String> cat){
+    	this.categorias = cat;
     }
 }
