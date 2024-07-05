@@ -6,7 +6,7 @@ public class SessaoUsuario {
     private String nome;
 
     SessaoUsuario() {
-        // Construtor privado para evitar instâncias externas
+        
     }
 
     public static SessaoUsuario getInstance() {

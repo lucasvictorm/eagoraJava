@@ -1,6 +1,7 @@
 package application;
 
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -40,7 +41,7 @@ public class NovoChamadoController implements Initializable{
 
 
     @FXML
-    void enviarChamado(ActionEvent event) {
+    void enviarChamado(ActionEvent event) throws IOException {
     	
     	String endereco = labelEndereco.getText();
     	String descricao = labelDescricao.getText();
@@ -52,7 +53,8 @@ public class NovoChamadoController implements Initializable{
     	Chamado chamado = new Chamado(descricao, categoria, endereco , id);
     	
     	chamado.abrirChamado();
-    	
+    	Janela janela = new Janela();
+    	janela.novaJanela(btnEnviar, "../gui/MenuPrincipal.fxml", "");
     	
     }
 

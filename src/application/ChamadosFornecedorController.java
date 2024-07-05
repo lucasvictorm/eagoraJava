@@ -6,7 +6,6 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
@@ -16,21 +15,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
-public class ChamadosCliente implements Initializable{
+public class ChamadosFornecedorController implements Initializable{
 
-	
-	
-	
     @FXML
     private AnchorPane scrollBox;
-    
-    
+
     @FXML
     private ScrollPane scrollExterno;
-    /*
-    @FXML
-    private Pane boxChamado;
-    */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
        // label_nome.setText(SessaoUsuario.getInstance().getNome());
@@ -39,7 +30,7 @@ public class ChamadosCliente implements Initializable{
     	
     	try {
     		
-    		String sql = "select categoria, descricao, endereco, status from chamados where usuario_id='"+SessaoUsuario.getInstance().getId()+"'";
+    		String sql = "select categoria, descricao, endereco, status from chamados where categoria='"+SessaoUsuario.getInstance().getId()+"'";
     		
     		Sql bd = new Sql();
     		bd.conectar();
@@ -153,5 +144,4 @@ public class ChamadosCliente implements Initializable{
     	
         
     }
-
 }

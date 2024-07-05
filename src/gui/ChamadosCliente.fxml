@@ -7,11 +7,10 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ChamadosCliente">
    <children>
-      <ScrollPane layoutX="154.0" layoutY="131.0" prefHeight="331.0" prefWidth="423.0">
-        <content>
-          <AnchorPane fx:id="scrollBox" minHeight="0.0" minWidth="0.0" prefHeight="445.0" prefWidth="404.0" />
-        </content>
-      </ScrollPane>
+      <ScrollPane fx:id="scrollExterno" layoutX="154.0" layoutY="131.0" prefHeight="331.0" prefWidth="423.0">
+         <content>
+            <AnchorPane fx:id="scrollBox" prefHeight="330.0" prefWidth="407.0" />
+         </content></ScrollPane>
       <Text layoutX="309.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Meus Chamados">
          <font>
             <Font name="Roboto Regular" size="18.0" />
