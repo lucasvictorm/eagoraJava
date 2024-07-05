@@ -20,5 +20,7 @@
       <Label layoutX="446.0" layoutY="161.0" text="Senha" />
       <PasswordField fx:id="inputSenha" layoutX="388.0" layoutY="187.0" />
       <Button fx:id="botaoEntrar" layoutX="438.0" layoutY="239.0" mnemonicParsing="false" onAction="#fazerLogin" style="-fx-background-color: #305562;" text="Entrar" textFill="WHITE" />
+      <Label layoutX="362.0" layoutY="346.0" text="Não é cadastrado?" />
+      <Button fx:id="btnCadastro" layoutX="461.0" layoutY="342.0" mnemonicParsing="false" onAction="#cadastrar" style="-fx-background-color: none; -fx-font-weight: bold;" text="Cadastrar" textFill="#366971" />
    </children>
 </AnchorPane>

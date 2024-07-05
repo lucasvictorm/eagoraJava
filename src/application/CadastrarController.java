@@ -54,9 +54,9 @@ public class CadastrarController {
     	String sql = "";
     	
     	if(fornecedorCheck.isSelected()) {
-    		sql = "insert into usuarios (nome, user, senha, tipo) values '"+nome+"', '"+login+"', '"+senha+"', '1'";
+    		sql = "insert into usuarios (nome, user, senha, tipo) values ('"+nome+"', '"+login+"', '"+senha+"', 1)";
     	}else {
-    		sql = "insert into usuarios (nome, user, senha, tipo) values '"+nome+"', '"+login+"', '"+senha+"', '0'";
+    		sql = "insert into usuarios (nome, user, senha, tipo) values ('"+nome+"', '"+login+"', '"+senha+"', 0)";
     	}
     	
     	
@@ -69,7 +69,7 @@ public class CadastrarController {
         	
         	
         	bd.insertQuery(sql);
-        	ResultSet result = bd.fazerQuery("select id from usuarios where username='"+login+"'");
+        	ResultSet result = bd.fazerQuery("select id from usuarios where user='"+login+"'");
         	while(result.next()) {
         		 id = result.getString("id");
         	}
@@ -97,20 +97,20 @@ public class CadastrarController {
         	}
     		fornecedor.setCategorias(categoriasList);
     		
-    		sql = "insert into fornecedores (id_user, cat1, cat2, cat3) values '"+id+"', '"+categoriasList.get(0)+"', '"+categoriasList.get(1)+"', '"+categoriasList.get(2)+"'";
+    		sql = "insert into fornecedor (id_user, cat1, cat2, cat3) values ('"+id+"', '"+categoriasList.get(0)+"', '"+categoriasList.get(1)+"', '"+categoriasList.get(2)+"')";
     		
     		bd.insertQuery(sql);
     		
     		
     		try {
-    			janela.novaJanela(botaoEntrar, "../gui/MenuPrestadorServiço", "Menu");
+    			janela.novaJanela(botaoEntrar, "../gui/MenuPrestadorServiço.fxml", "Menu");
     		}catch (Exception e) {
 				// TODO: handle exception
 			}
     		
     	}else {
     		try {
-    			janela.novaJanela(botaoEntrar, "../gui/MenuPrincipal", "Menu");
+    			janela.novaJanela(botaoEntrar, "../gui/MenuPrincipal.fxml", "Menu");
     		}catch (Exception e) {
 				// TODO: handle exception
 			}

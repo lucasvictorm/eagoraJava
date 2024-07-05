@@ -18,6 +18,9 @@ public class TelaController {
 
     @FXML
     private TextField loginInput;
+    
+    @FXML
+    private Button btnCadastro;
 
     @FXML
     private Button botaoEntrar;
@@ -51,30 +54,18 @@ public class TelaController {
 			// TODO: handle exception
 		}
     	
-    	/*
-    	@FXML
-    void novaJanela() {
-        try {
-        	
-        	Sql sql = new Sql();
-        	sql.conectar();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Tela2.fxml"));
-            Parent root = loader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Nova Janela");
-            stage.show();
-            
-            
-            Stage primaryStage = (Stage) openButton.getScene().getWindow();
-            
-            primaryStage.close();
-            
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }*/
+    	
     
+    	
+    }
+    @FXML
+    void cadastrar() {
+    	Janela janela = new Janela();
+    	try {
+    		janela.novaJanela(btnCadastro, "../gui/Cadastrar.fxml", "Cadastro");
+    	}catch (Exception e) {
+			// TODO: handle exception
+		}
     	
     }
 }
