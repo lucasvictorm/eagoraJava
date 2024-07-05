@@ -3,7 +3,7 @@ package application;
 import java.util.List;
 
 public class SessaoFornecedor {
-	private  List<String> categorias;
+	private List<String> categorias;
 	private String nome;
 	private String id;
 	private static SessaoFornecedor instance;

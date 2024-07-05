@@ -4,8 +4,11 @@ import java.net.URL;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
@@ -26,11 +29,12 @@ public class ChamadosFornecedorController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
        // label_nome.setText(SessaoUsuario.getInstance().getNome());
     	
-    	
-    	
+    	Button botaoAceitar;
+    	Janela janela = new Janela();
     	try {
+    		System.out.println(SessaoFornecedor.getInstance().getCategorias().get(0));
     		
-    		String sql = "select categoria, descricao, endereco, status from chamados where categoria='"+SessaoUsuario.getInstance().getId()+"'";
+    		String sql = "select id, categoria, descricao, endereco, status from chamados where categoria='"+SessaoFornecedor.getInstance().getCategorias().get(0)+"' or categoria='"+SessaoFornecedor.getInstance().getCategorias().get(1)+"' or categoria='"+SessaoFornecedor.getInstance().getCategorias().get(2)+"'";
     		
     		Sql bd = new Sql();
     		bd.conectar();
@@ -50,11 +54,13 @@ public class ChamadosFornecedorController implements Initializable{
 	        		String descricao = res.getString("descricao");
 	        		String endereco = res.getString("endereco");
 	        		String status = res.getString("status");
+	        		String strId = res.getString("id");
 	    		
 			    	Pane caixa = new Pane();
-			    	Label labelDescricao = new Label();
+			    	Button labelDescricao = new Button("Aceitar Chamado");
 			    	Label labelCategoria = new Label();
 			    	Label labelEndereco = new Label();
+			    	Label labelId = new Label();
 			    	
 			    	TextArea areaDescricao = new TextArea();
 			    	TextArea areaEndereco = new TextArea();
@@ -67,9 +73,27 @@ public class ChamadosFornecedorController implements Initializable{
 			    	caixa.setPrefHeight(140);
 			    	
 			    	
-			    	labelDescricao.setText(status);
-			    	labelDescricao.setLayoutX(193);
+			    	labelId.setText(strId);
+			    	labelId.setVisible(false);
+			    	
+			    	
+			    	//labelDescricao.setText("Aceitar Chamado");
+			    	labelDescricao.setLayoutX(140);
 			    	labelDescricao.setLayoutY(23);
+			    	labelDescricao.setOnAction(new EventHandler<ActionEvent>() {
+			    		@Override
+			            public void handle(ActionEvent event) {
+			    			try {
+			    				bd.insertQuery("update chamados set status='Em andamento', fornecedor_id='"+SessaoFornecedor.getInstance().getId()+"' where id='"+strId+"'");
+			    				janela.novaJanela(labelDescricao, "../gui/MenuPrestadorServiço.fxml", "Menu");
+			    			}catch (Exception e) {
+								System.out.println(e);
+							}
+			                
+			            }
+			            
+			        });
+			    	
 			    	
 			    	labelCategoria.setText(categoria);
 			    	labelCategoria.setLayoutX(14);
@@ -113,7 +137,7 @@ public class ChamadosFornecedorController implements Initializable{
 			    	caixa.getStyleClass().add("borda-preta");
 			    	
 			    	//caixa.getStyleClass().add("borda-preta");
-			    	
+			    	caixa.getChildren().add(labelId);
 			    	caixa.getChildren().add(areaEndereco);
 			    	caixa.getChildren().add(areaDescricao);
 			    	caixa.getStylesheets().add(getClass().getResource("styleChamados.css").toExternalForm());
@@ -133,10 +157,11 @@ public class ChamadosFornecedorController implements Initializable{
 			    	
 			    	moveY += 167;
     		}
-    		System.out.println(tamanho);
+    		
     		scrollBox.setPrefHeight(tamanho);
     	}catch (Exception e) {
 			// TODO: handle exception
+    		System.out.println(e);
 		}
     	
     	//Color paint = new Color(0.0, 0.0, 0.0, 0.5805);

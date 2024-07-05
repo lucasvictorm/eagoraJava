@@ -77,7 +77,7 @@ public class ChamadosCliente implements Initializable{
 			    	
 			    	
 			    	labelDescricao.setText(status);
-			    	labelDescricao.setLayoutX(193);
+			    	labelDescricao.setLayoutX(150);
 			    	labelDescricao.setLayoutY(23);
 			    	
 			    	labelCategoria.setText(categoria);

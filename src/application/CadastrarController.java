@@ -1,20 +1,23 @@
 package application;
 
+import java.net.URL;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import javax.swing.JCheckBox;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
-public class CadastrarController {
+public class CadastrarController implements Initializable{
 
     @FXML
     private Button botaoEntrar;
@@ -42,16 +45,38 @@ public class CadastrarController {
 
     @FXML
     private CheckBox pedreiroCheck;
+    
+    @FXML
+    void handleforcenedor(ActionEvent event) {
+    	if(fornecedorCheck.isSelected()) {
+    		boxCategorias.setDisable(false);
+    	}else {
+    		boxCategorias.setDisable(true);
+    	}
+    }
+    
+    public void initialize(URL location, ResourceBundle resources) {
+    	boxCategorias.setDisable(true);
+    	
+    	
+    	 fornecedorCheck.selectedProperty().addListener((observable, oldValue, newValue) -> {
+             handleforcenedor(null);
+         });
+    }
 
     @FXML
     void cadastrar(ActionEvent event) {
     	SessaoFornecedor fornecedor = new SessaoFornecedor();
+    	
     	
     	Janela janela = new Janela();
     	String login = loginInput.getText();
     	String nome = nomeInput.getText();
     	String senha = inputSenha.getText();
     	String sql = "";
+    	
+    	
+    	
     	
     	if(fornecedorCheck.isSelected()) {
     		sql = "insert into usuarios (nome, user, senha, tipo) values ('"+nome+"', '"+login+"', '"+senha+"', 1)";
@@ -69,9 +94,12 @@ public class CadastrarController {
         	
         	
         	bd.insertQuery(sql);
-        	ResultSet result = bd.fazerQuery("select id from usuarios where user='"+login+"'");
+        	ResultSet result = bd.fazerQuery("select id, nome from usuarios where user='"+login+"'");
         	while(result.next()) {
         		 id = result.getString("id");
+        		 
+     			SessaoFornecedor.getInstance().setNome(result.getString("nome"));
+     			SessaoFornecedor.getInstance().setNome(result.getString(id));
         	}
     	
     	}catch (Exception e) {
@@ -102,20 +130,16 @@ public class CadastrarController {
     		bd.insertQuery(sql);
     		
     		
-    		try {
-    			janela.novaJanela(botaoEntrar, "../gui/MenuPrestadorServiço.fxml", "Menu");
-    		}catch (Exception e) {
-				// TODO: handle exception
-			}
     		
-    	}else {
-    		try {
-    			janela.novaJanela(botaoEntrar, "../gui/MenuPrincipal.fxml", "Menu");
-    		}catch (Exception e) {
-				// TODO: handle exception
-			}
     		
     	}
+		try {
+			janela.novaJanela(botaoEntrar, "../gui/Login.fxml", "Menu");
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+    		
+    	
     	
     	
     }
