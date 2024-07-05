@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CadastroController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CadastrarController">
    <children>
       <TextField fx:id="loginInput" layoutX="384.0" layoutY="258.0" />
       <Label layoutX="444.0" layoutY="240.0" text="Login" />
@@ -21,7 +21,7 @@
       </ImageView>
       <Label layoutX="443.0" layoutY="297.0" text="Senha" />
       <PasswordField fx:id="inputSenha" layoutX="385.0" layoutY="315.0" />
-      <Button fx:id="botaoEntrar" layoutX="426.0" layoutY="352.0" mnemonicParsing="false" onAction="#fazerLogin" style="-fx-background-color: #305562;" text="Cadastrar" textFill="WHITE" />
+      <Button fx:id="botaoEntrar" layoutX="426.0" layoutY="352.0" mnemonicParsing="false" onAction="#cadastrar" style="-fx-background-color: #305562;" text="Cadastrar" textFill="WHITE" />
       <CheckBox fx:id="fornecedorCheck" layoutX="385.0" layoutY="28.0" mnemonicParsing="false" text="Forneço Serviços" />
       <Pane fx:id="boxCategorias" layoutX="384.0" layoutY="60.0" prefHeight="116.0" prefWidth="150.0">
          <children>
