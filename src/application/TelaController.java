@@ -2,12 +2,15 @@ package application;
 
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -15,7 +18,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 
-public class TelaController {
+public class TelaController implements Initializable {
     
 	@FXML
     private PasswordField inputSenha;
@@ -31,6 +34,12 @@ public class TelaController {
     @FXML
     private Label errorLabel;
 
+    
+    public void initialize(URL location, ResourceBundle resources) {
+     btnCadastro.setStyle("-fx-focus-traversable: false; -fx-background-color: none");
+    
+    }
+    
     @FXML
     void fazerLogin() throws IOException {
     	Sql sql = new Sql();
