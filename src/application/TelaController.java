@@ -10,6 +10,7 @@ import java.util.List;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
@@ -27,6 +28,8 @@ public class TelaController {
 
     @FXML
     private Button botaoEntrar;
+    @FXML
+    private Label errorLabel;
 
     @FXML
     void fazerLogin() throws IOException {
@@ -103,7 +106,7 @@ public class TelaController {
         			
         		}while(result.next());
         	}else {
-        	
+        		errorLabel.setText("Usuário e/ou senha incorretos.");
         	}
     	}catch (SQLException e) {
 			// TODO: handle exception

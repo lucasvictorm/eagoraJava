@@ -40,9 +40,14 @@
          <font>
             <Font name="Roboto Regular" size="25.0" />
          </font></Label>
-      <Button fx:id="btnCadastro" layoutX="1003.0" layoutY="552.0" mnemonicParsing="false" onAction="#cadastrar" style="-fx-background-color: none; -fx-font-weight: bold;" text="Cadastrar" textFill="#366971">
+      <Button fx:id="btnCadastro" defaultButton="true" layoutX="1003.0" layoutY="552.0" mnemonicParsing="false" onAction="#cadastrar" style="-fx-background-color: none; -fx-font-weight: bold;" text="Cadastrar" textFill="#366971">
          <font>
             <Font name="Roboto Regular" size="25.0" />
          </font></Button>
+      <Label fx:id="errorLabel" layoutX="891.0" layoutY="608.0" prefHeight="23.0" prefWidth="170.0" text=" " textAlignment="CENTER" textFill="#df0000">
+         <font>
+            <Font name="Roboto Regular" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
