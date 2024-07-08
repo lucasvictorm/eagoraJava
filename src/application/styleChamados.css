@@ -1,10 +1,63 @@
-.borda-preta{
-	-fx-background-color: white;
-	-fx-border-radius: 10px;
+.card-aberto{
+	-fx-background-color: #305562;
+	-fx-background-radius: 20;
+	-fx-text-fill: white;
+}
+
+.card-andamento{
+	-fx-background-color: #d1d435;
+	-fx-background-radius: 20;
+	-fx-text-fill: white;
+}
+
+.card-finalizado{
+	-fx-background-color: #c23a30;
+	-fx-background-radius: 20;
+	-fx-text-fill: white;
 }
 
 .titulo{
 	-fx-font-weight: bold;
-	-fx-font-size: 14;
+
+	-fx-text-fill: white;
+	-fx-font-size: 30px;
 }
 
+.endereco{
+	-fx-font-size: 1.5em;
+	-fx-font-weight: bold;
+	
+}
+
+.labelTexto{
+	-fx-text-fill: white;
+	-fx-font-size: 1.5em;
+}
+
+
+
+.text-area {
+	-fx-text-fill: white;
+	-fx-font-size: 1.5em;
+    -fx-background-color: transparent;
+}
+
+.text-area .scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.text-area .scroll-pane .viewport{
+    -fx-background-color: transparent;
+}
+
+
+.text-area .scroll-pane .content{
+    -fx-background-color: transparent;
+}
+
+
+.aceitar-chamado{
+	-fx-text-fill: white;
+	-fx-background-color: #bf1b0f;
+	-fx-font-size: 20;
+}

@@ -31,4 +31,10 @@ public class SessaoUsuario {
     public void setNome(String nome) {
         this.nome = nome;
     }
+    
+    public void limparSessao() {
+    	this.nome = null;
+    	this.id = null;
+    	
+    }
 }

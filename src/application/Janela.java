@@ -3,6 +3,7 @@ package application;
 import java.io.IOException;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -10,7 +11,7 @@ import javafx.stage.Stage;
 
 
 public class Janela{
-	public void novaJanela(Button botao, String caminho, String titulo) throws IOException {
+	public void novaJanela(Node botao, String caminho, String titulo) throws IOException {
 		
 		FXMLLoader loader = new FXMLLoader(getClass().getResource(caminho));
 	    Parent root = loader.load();

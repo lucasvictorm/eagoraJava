@@ -44,4 +44,12 @@ public class SessaoFornecedor {
     public void setCategorias(List<String> cat){
     	this.categorias = cat;
     }
+    
+    public void limparSessao() {
+    	this.nome = null;
+    	this.id = null;
+    	this.categorias.clear();;
+    	
+    }
+    
 }

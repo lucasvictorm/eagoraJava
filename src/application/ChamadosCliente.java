@@ -35,7 +35,7 @@ public class ChamadosCliente implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
        // label_nome.setText(SessaoUsuario.getInstance().getNome());
     	
-    	
+    	/*
     	
     	try {
     		
@@ -133,7 +133,7 @@ public class ChamadosCliente implements Initializable{
 			        dropShadow.setOffsetY(1);
 			        Color paint = new Color(0.0, 0.0, 0.0, 0.4286);
 			        dropShadow.setColor(paint);
-			        //caixa.setEffect(dropShadow);
+			        scrollBox.setEffect(dropShadow);
 			        
 			        tamanho += paneHeight + space;
 			        scrollBox.setEffect(dropShadow);
@@ -150,7 +150,10 @@ public class ChamadosCliente implements Initializable{
     	
     	//Color paint = new Color(0.0, 0.0, 0.0, 0.5805);
     	
+    	*/
     	
+    	Chamado chamado = new Chamado(null, null, null, null);
+    	chamado.chamadosCliente(scrollBox);
         
     }
 

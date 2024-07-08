@@ -27,14 +27,17 @@ public class ChamadosFornecedorController implements Initializable{
     private ScrollPane scrollExterno;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-       // label_nome.setText(SessaoUsuario.getInstance().getNome());
     	
+    	Chamado chamado = new Chamado(null, null, null, null);
+    	chamado.chamadosDisponiveis(scrollBox);
+       // label_nome.setText(SessaoUsuario.getInstance().getNome());
+    	/*
     	Button botaoAceitar;
     	Janela janela = new Janela();
     	try {
     		System.out.println(SessaoFornecedor.getInstance().getCategorias().get(0));
     		
-    		String sql = "select id, categoria, descricao, endereco, status from chamados where categoria='"+SessaoFornecedor.getInstance().getCategorias().get(0)+"' or categoria='"+SessaoFornecedor.getInstance().getCategorias().get(1)+"' or categoria='"+SessaoFornecedor.getInstance().getCategorias().get(2)+"'";
+    		String sql = "select id, categoria, descricao, endereco, status from chamados where status='Aberto' and categoria='"+SessaoFornecedor.getInstance().getCategorias().get(0)+"' or categoria='"+SessaoFornecedor.getInstance().getCategorias().get(1)+"' or categoria='"+SessaoFornecedor.getInstance().getCategorias().get(2)+"'";
     		
     		Sql bd = new Sql();
     		bd.conectar();
@@ -167,6 +170,6 @@ public class ChamadosFornecedorController implements Initializable{
     	//Color paint = new Color(0.0, 0.0, 0.0, 0.5805);
     	
     	
-        
+        */
     }
 }
