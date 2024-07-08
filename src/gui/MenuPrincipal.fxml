@@ -11,9 +11,9 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PrincipalClienteController">
    <children>
    
-      <Button fx:id="btnNovoChamado" layoutX="40.0" layoutY="103.0" mnemonicParsing="false" onAction="#novoChamado" style="-fx-background-color: #3a7b91;" text="Novo Chamado" textFill="WHITE">
+      <Button fx:id="btnNovoChamado" layoutX="40.0" layoutY="137.0" mnemonicParsing="false" onAction="#novoChamado" style="-fx-background-color: #3a7b91;" text="Novo Chamado" textFill="WHITE">
          <font>
-            <Font name="Roboto Regular" size="16.0" />
+            <Font name="Roboto Regular" size="34.0" />
          </font></Button>
       <Pane prefHeight="78.0" prefWidth="1280.0" style="-fx-background-color: #305562;">
          <children>
@@ -43,12 +43,12 @@
             </Pane>
          </children>
       </Pane>
-      <Button fx:id="btnMeusChamados" layoutX="40.0" layoutY="152.0" mnemonicParsing="false" onAction="#meusChamados" style="-fx-background-color: #3a7b91;" text="Meus Chamados" textFill="WHITE">
+      <Button fx:id="btnMeusChamados" layoutX="40.0" layoutY="228.0" mnemonicParsing="false" onAction="#meusChamados" style="-fx-background-color: #3a7b91;" text="Meus Chamados" textFill="WHITE">
          <font>
-            <Font name="Roboto Regular" size="16.0" />
+            <Font name="Roboto Regular" size="34.0" />
          </font>
       </Button>
-      <ImageView fitHeight="222.0" fitWidth="247.0" layoutX="277.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="401.0" fitWidth="481.0" layoutX="560.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../application/icon-menu-cliente.png" />
          </image>
