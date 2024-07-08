@@ -8,32 +8,33 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PrincipalClienteController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PrincipalClienteController">
    <children>
+   
       <Button fx:id="btnNovoChamado" layoutX="40.0" layoutY="103.0" mnemonicParsing="false" onAction="#novoChamado" style="-fx-background-color: #3a7b91;" text="Novo Chamado" textFill="WHITE">
          <font>
             <Font name="Roboto Regular" size="16.0" />
          </font></Button>
-      <Pane prefHeight="78.0" prefWidth="600.0" style="-fx-background-color: #305562;">
+      <Pane prefHeight="78.0" prefWidth="1280.0" style="-fx-background-color: #305562;">
          <children>
-            <Label layoutX="40.0" layoutY="31.0" text="Bem vindo(a), " textFill="WHITE">
+            <Label layoutX="222.0" layoutY="27.0" text="Bem vindo(a), " textFill="WHITE">
                <font>
-                  <Font name="Roboto Regular" size="19.0" />
+                  <Font name="Roboto Regular" size="25.0" />
                </font>
             </Label>
-            <Label fx:id="label_nome" layoutX="162.0" layoutY="27.0" prefHeight="32.0" prefWidth="115.0" text="nome" textFill="WHITE">
+            <Label fx:id="label_nome" layoutX="390.0" layoutY="26.0" prefHeight="32.0" prefWidth="238.0" text="nome" textFill="WHITE">
                <font>
-                  <Font name="Roboto Regular" size="19.0" />
+                  <Font name="Roboto Regular" size="25.0" />
                </font>
             </Label>
-            <Pane layoutX="446.0" prefHeight="78.0" prefWidth="122.0">
+            <Pane fx:id="logoutBox" layoutX="1025.0" layoutY="20.0" prefHeight="38.0" prefWidth="76.0">
                <children>
-                  <ImageView fitHeight="31.0" fitWidth="35.0" layoutX="68.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="31.0" fitWidth="35.0" layoutX="41.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="file:/C:/Users/Lucas%20Victor/eclipse-workspace/EagoraFx/src/application/logout-icon.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="27.0" layoutY="27.0" text="Sair" textFill="WHITE">
+                  <Label layoutY="7.0" text="Sair" textFill="WHITE">
                      <font>
                         <Font name="Roboto Regular" size="19.0" />
                      </font>
@@ -47,14 +48,9 @@
             <Font name="Roboto Regular" size="16.0" />
          </font>
       </Button>
-      <Button fx:id="btnEditarPerfil" layoutX="40.0" layoutY="200.0" mnemonicParsing="false" onAction="#editarPerfil" style="-fx-background-color: #3a7b91;" text="Editar Perfil" textFill="WHITE">
-         <font>
-            <Font name="Roboto Regular" size="16.0" />
-         </font>
-      </Button>
-      <ImageView fitHeight="185.0" fitWidth="250.0" layoutX="300.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="222.0" fitWidth="247.0" layoutX="277.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:/C:/Users/Lucas%20Victor/eclipse-workspace/EagoraFx/src/application/icon-menu.png" />
+            <Image url="@../application/icon-menu-cliente.png" />
          </image>
       </ImageView>
    </children>

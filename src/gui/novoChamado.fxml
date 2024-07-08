@@ -10,6 +10,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.NovoChamadoController">
    <children>
+   <fx:include source="cabecalho.fxml" />
       <ComboBox fx:id="categorias_box" layoutX="250.0" layoutY="97.0" prefHeight="26.0" prefWidth="200.0" promptText="Selecione uma opção" />
       <Label layoutX="250.0" layoutY="70.0" text="Tipo de serviço" />
       <TextArea fx:id="labelDescricao" layoutX="250.0" layoutY="163.0" prefHeight="150.0" prefWidth="200.0" wrapText="true">

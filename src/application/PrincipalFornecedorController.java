@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 
 public class PrincipalFornecedorController implements Initializable{
 	Janela janela = new Janela();
@@ -44,6 +45,19 @@ public class PrincipalFornecedorController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         label_nome.setText(SessaoFornecedor.getInstance().getNome());
         
+    }
+    
+    @FXML
+    void logout(MouseEvent event) throws IOException {
+    	
+    	if(SessaoFornecedor.getInstance().getId()==null){
+    		SessaoUsuario.getInstance().limparSessao();
+    		
+    	}else {
+    		SessaoFornecedor.getInstance().limparSessao();
+    	}
+    	
+    	janela.novaJanela(logoutBox, "../gui/Login.fxml", "Home");
     }
 
 }

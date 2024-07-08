@@ -16,12 +16,20 @@
 	-fx-text-fill: white;
 }
 
-.titulo{
+.card-aberto .titulo{
 	-fx-font-weight: bold;
 
 	-fx-text-fill: white;
 	-fx-font-size: 30px;
 }
+
+.card-andamento .titulo, .card-finalizado .titulo{
+	-fx-font-weight: bold;
+
+	-fx-text-fill: black;
+	-fx-font-size: 30px;
+}
+
 
 .endereco{
 	-fx-font-size: 1.5em;
@@ -29,15 +37,29 @@
 	
 }
 
-.labelTexto{
+
+
+.card-aberto .labelTexto{
 	-fx-text-fill: white;
+	-fx-font-size: 1.5em;
+}
+.card-andamento .labelTexto, .card-finalizado .labelTexto{
+	-fx-text-fill: black;
 	-fx-font-size: 1.5em;
 }
 
 
 
-.text-area {
+
+
+.card-aberto .text-area {
 	-fx-text-fill: white;
+	-fx-font-size: 1.5em;
+    -fx-background-color: transparent;
+}
+
+.card-andamento .text-area, card-finalizado .textarea{
+	-fx-text-fill: black;
 	-fx-font-size: 1.5em;
     -fx-background-color: transparent;
 }

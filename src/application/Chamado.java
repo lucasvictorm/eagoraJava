@@ -196,6 +196,35 @@ try {
 				    	labelDescricao.getStyleClass().add("labelTexto");
 				    	caixa.getChildren().add(labelDescricao);
 					}
+					
+					if(status.equals("Em andamento")) {
+						Button finalizar = new Button("Finalizar Chamado");
+						finalizar.setLayoutX(495);
+				    	finalizar.setLayoutY(118);
+				    	finalizar.getStyleClass().add("aceitar-chamado");
+				    	
+				    	Label labelId = new Label();
+				    	String strId = res.getString("id");
+				    	labelId.setText(strId);
+				    	labelId.setVisible(false);
+				    	
+				    	
+				    	//labelDescricao.setText("Aceitar Chamado");
+				    	
+				    	caixa.getChildren().add(finalizar);
+				    	finalizar.setOnAction(new EventHandler<ActionEvent>() {
+				    		@Override
+				            public void handle(ActionEvent event) {
+				    			try {
+				    				finalizarChamado(finalizar, strId);
+				    			}catch (Exception e) {
+									System.out.println(e);
+								}
+				                
+				            }
+				            
+				        });
+					}
 			    	
 			    	
 			    	
@@ -242,7 +271,15 @@ try {
 			    	
 			    	caixa.getChildren().add(labelCategoria);
 			    	caixa.getChildren().add(labelEndereco);
-			    	caixa.getStyleClass().add("card-aberto");
+			    	
+			    	if(status.equals("Aberto")) {
+			    		caixa.getStyleClass().add("card-aberto");
+			    	}else if(status.equals("Em andamento")) {
+			    		caixa.getStyleClass().add("card-andamento");
+			    	}else {
+			    		caixa.getStyleClass().add("card-finalizado");
+			    	}
+			    	
 			    	
 			    	//caixa.getStyleClass().add("borda-preta");
 			    	
@@ -286,6 +323,14 @@ try {
 		Janela janela = new Janela();
 		bd.insertQuery("update chamados set status='Em andamento', fornecedor_id='"+SessaoFornecedor.getInstance().getId()+"' where id='"+id+"'");
 		janela.novaJanela(elemento, "../gui/MenuPrestadorServiço.fxml", "Menu");
+	}
+	
+	public void finalizarChamado(Node elemento, String id) throws IOException {
+		Sql bd = new Sql();
+		bd.conectar();
+		Janela janela = new Janela();
+		bd.insertQuery("update chamados set status='Finalizado' where id='"+id+"'");
+		janela.novaJanela(elemento, "../gui/ChamadosCliente.fxml", "Menu");
 	}
 	
 }

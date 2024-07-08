@@ -53,13 +53,13 @@ public class TelaController {
             			SessaoUsuario.getInstance().setNome(result.getString("nome"));
         				janela.novaJanela(botaoEntrar, "../gui/MenuPrincipal.fxml", "Menu Principal");
         			}else {
-        				System.out.println("Fornecedor");
+        				
         				List<String> categoriasArray = new ArrayList<>();
         				try {
         					String cate = "select cat1, cat2, cat3 from fornecedor where id_user='"+result.getString("id")+"'";
             				
             				ResultSet resultCat = sql.fazerQuery(cate);
-            				System.out.println("kkk");
+            			
             				while(resultCat.next()) {
             					String cat1 = resultCat.getString("cat1");
             					String cat2 = resultCat.getString("cat2");
@@ -92,18 +92,18 @@ public class TelaController {
         				
         				SessaoFornecedor.getInstance().setCategorias(categoriasArray);
         				List<String> lista =SessaoFornecedor.getInstance().getCategorias();
-        				System.out.println(lista);
+        				
         				SessaoFornecedor.getInstance().setId(result.getString("id"));
             			SessaoFornecedor.getInstance().setNome(result.getString("nome"));
-            			System.out.println("Antes");
+            			
         				janela.novaJanela(botaoEntrar, "../gui/MenuPrestadorServiço.fxml", "Menu Principal");
-        				System.out.println("Passou");
+        				
         			}
         			
         			
         		}while(result.next());
         	}else {
-        		System.out.println("Incorreto");
+        	
         	}
     	}catch (SQLException e) {
 			// TODO: handle exception

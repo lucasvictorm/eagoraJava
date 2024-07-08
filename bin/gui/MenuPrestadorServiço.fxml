@@ -10,6 +10,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PrincipalFornecedorController">
    <children>
+   
       <Button fx:id="btnServicosDisponiveis" layoutX="40.0" layoutY="103.0" mnemonicParsing="false" onAction="#verServicosDisponiveis" style="-fx-background-color: #3a7b91;" text="Serviços Disponíveis" textFill="WHITE">
          <font>
             <Font name="Roboto Regular" size="16.0" />
