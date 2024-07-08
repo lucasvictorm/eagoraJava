@@ -27,7 +27,7 @@
                   <Font name="Roboto Regular" size="25.0" />
                </font>
             </Label>
-            <Pane fx:id="logoutBox" layoutX="1025.0" layoutY="20.0" prefHeight="38.0" prefWidth="76.0">
+            <Pane fx:id="logoutBox" layoutX="947.0" layoutY="20.0" onMouseClicked="#logout" prefHeight="38.0" prefWidth="76.0">
                <children>
                   <ImageView fitHeight="31.0" fitWidth="35.0" layoutX="41.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                      <image>

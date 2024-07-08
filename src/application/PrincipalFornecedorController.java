@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 
 public class PrincipalFornecedorController implements Initializable{
 	Janela janela = new Janela();
@@ -26,13 +27,16 @@ public class PrincipalFornecedorController implements Initializable{
     private Label label_nome;
 
     @FXML
+    private Pane logoutBox;
+    
+    @FXML
     void editarPerfil(ActionEvent event) {
 
     }
 
     @FXML
-    void servicosAceitos(ActionEvent event) {
-
+    void servicosAceitos(ActionEvent event) throws IOException {
+    	janela.novaJanela(btnServicos, "../gui/ServicosAceitos.fxml", "Serviços");
     }
 
     @FXML

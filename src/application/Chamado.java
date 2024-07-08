@@ -86,7 +86,7 @@ public class Chamado {
 	}
 	
 	public void chamadosCliente(AnchorPane scrollBox) {
-		String sql = "select categoria, descricao, endereco, status from chamados where usuario_id='"+SessaoUsuario.getInstance().getId()+"'";
+		String sql = "select id, categoria, descricao, endereco, status from chamados where usuario_id='"+SessaoUsuario.getInstance().getId()+"'";
 		
 		Sql bd = new Sql();
 		try {
@@ -101,7 +101,7 @@ public class Chamado {
 	}
 	
 	public void chamadosDisponiveis(AnchorPane scrollBox) {
-		String sql = "select id, categoria, descricao, endereco, status from chamados where status='Aberto' and categoria='"+SessaoFornecedor.getInstance().getCategorias().get(0)+"' or categoria='"+SessaoFornecedor.getInstance().getCategorias().get(1)+"' or categoria='"+SessaoFornecedor.getInstance().getCategorias().get(2)+"'";
+		String sql = "select id, categoria, descricao, endereco, status from chamados where status='Aberto' and categoria='"+SessaoFornecedor.getInstance().getCategorias().get(0)+"' or status='Aberto' and categoria='"+SessaoFornecedor.getInstance().getCategorias().get(1)+"' or status='Aberto' and categoria='"+SessaoFornecedor.getInstance().getCategorias().get(2)+"'";
 		
 		Sql bd = new Sql();
 		
@@ -116,6 +116,19 @@ public class Chamado {
 		
 	}
 	
+	public void chamadosAceitos(AnchorPane scrollBox) {
+		String sql = "select id, categoria, descricao, endereco, status from chamados where status='Em andamento' and fornecedor_id='"+SessaoFornecedor.getInstance().getId()+"'";
+		
+		Sql bd = new Sql();
+		
+		try {
+			bd.conectar();
+			ResultSet res = bd.fazerQuery(sql);
+			listarChamados(scrollBox, res, 2);
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
 	
 	/*
 	 * tipos
@@ -129,11 +142,11 @@ public class Chamado {
 	public void listarChamados(AnchorPane scrollBox, ResultSet res, int tipo) {
 try {
     		
-    		
+	
     		
     		int moveY = 162;
-    		int paneHeight = 700;
-    		int space = 70;
+    		int paneHeight = 400;
+    		int space = 0;
     		int tamanho = 0;
     		
     		while(res.next()) {
@@ -157,6 +170,8 @@ try {
 			    	caixa.setPrefWidth(700);
 			    	caixa.setPrefHeight(390);
 			    	
+			    	
+			    		
 			    	
 					if(tipo==1) {
 								    		
@@ -187,17 +202,26 @@ try {
 				            
 				        });
 				    	
-					}else {
-						
-						Label labelDescricao = new Label();
-						labelDescricao.setText(status);
-				    	labelDescricao.setLayoutX(506);
-				    	labelDescricao.setLayoutY(51);
-				    	labelDescricao.getStyleClass().add("labelTexto");
-				    	caixa.getChildren().add(labelDescricao);
-					}
 					
-					if(status.equals("Em andamento")) {
+					
+					
+					
+			    	}
+			    	
+			    	if(tipo == 0) {
+			    		
+							
+							Label labelDescricao = new Label();
+							labelDescricao.setText(status);
+					    	labelDescricao.setLayoutX(506);
+					    	labelDescricao.setLayoutY(51);
+					    	labelDescricao.getStyleClass().add("labelTexto");
+					    	caixa.getChildren().add(labelDescricao);
+						
+			    	}
+			    	
+					if(status.equals("Em andamento") && tipo==0) {
+						System.out.println("kkk");
 						Button finalizar = new Button("Finalizar Chamado");
 						finalizar.setLayoutX(495);
 				    	finalizar.setLayoutY(118);
@@ -274,9 +298,12 @@ try {
 			    	
 			    	if(status.equals("Aberto")) {
 			    		caixa.getStyleClass().add("card-aberto");
+			    		
 			    	}else if(status.equals("Em andamento")) {
+			    		
 			    		caixa.getStyleClass().add("card-andamento");
-			    	}else {
+			    		
+			    	}else if(status.equals("Finalizado")){
 			    		caixa.getStyleClass().add("card-finalizado");
 			    	}
 			    	
@@ -332,6 +359,9 @@ try {
 		bd.insertQuery("update chamados set status='Finalizado' where id='"+id+"'");
 		janela.novaJanela(elemento, "../gui/ChamadosCliente.fxml", "Menu");
 	}
+	
+	
+	
 	
 }
 	

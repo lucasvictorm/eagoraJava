@@ -7,20 +7,42 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TelaController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TelaController">
    <children>
-      <TextField fx:id="loginInput" layoutX="387.0" layoutY="116.0" />
-      <Label layoutX="448.0" layoutY="84.0" text="Login" />
-      <ImageView fitHeight="400.0" fitWidth="390.0" layoutX="-74.0" pickOnBounds="true">
+      <TextField fx:id="loginInput" layoutX="849.0" layoutY="208.0" prefHeight="54.0" prefWidth="250.0">
+         <font>
+            <Font name="Roboto Regular" size="25.0" />
+         </font></TextField>
+      <Label layoutX="934.0" layoutY="134.0" text="Login">
+         <font>
+            <Font size="29.0" />
+         </font></Label>
+      <ImageView fitHeight="745.0" fitWidth="713.0" layoutX="-74.0" layoutY="-14.0" pickOnBounds="true">
          <image>
             <Image url="file:/C:/Users/Lucas%20Victor/eclipse-workspace/EagoraFx/src/application/login.jpeg" />
          </image>
       </ImageView>
-      <Label layoutX="446.0" layoutY="161.0" text="Senha" />
-      <PasswordField fx:id="inputSenha" layoutX="388.0" layoutY="187.0" />
-      <Button fx:id="botaoEntrar" layoutX="438.0" layoutY="239.0" mnemonicParsing="false" onAction="#fazerLogin" style="-fx-background-color: #305562;" text="Entrar" textFill="WHITE" />
-      <Label layoutX="362.0" layoutY="346.0" text="Não é cadastrado?" />
-      <Button fx:id="btnCadastro" layoutX="461.0" layoutY="342.0" mnemonicParsing="false" onAction="#cadastrar" style="-fx-background-color: none; -fx-font-weight: bold;" text="Cadastrar" textFill="#366971" />
+      <Label layoutX="931.0" layoutY="305.0" text="Senha">
+         <font>
+            <Font size="29.0" />
+         </font></Label>
+      <PasswordField fx:id="inputSenha" layoutX="852.0" layoutY="365.0" prefHeight="54.0" prefWidth="249.0">
+         <font>
+            <Font name="Roboto Regular" size="25.0" />
+         </font></PasswordField>
+      <Button fx:id="botaoEntrar" layoutX="920.0" layoutY="462.0" mnemonicParsing="false" onAction="#fazerLogin" style="-fx-background-color: #305562; -fx-background-radius: 20;" text="Entrar" textFill="WHITE">
+         <font>
+            <Font size="29.0" />
+         </font></Button>
+      <Label layoutX="800.0" layoutY="559.0" text="Não é cadastrado?">
+         <font>
+            <Font name="Roboto Regular" size="25.0" />
+         </font></Label>
+      <Button fx:id="btnCadastro" layoutX="1003.0" layoutY="552.0" mnemonicParsing="false" onAction="#cadastrar" style="-fx-background-color: none; -fx-font-weight: bold;" text="Cadastrar" textFill="#366971">
+         <font>
+            <Font name="Roboto Regular" size="25.0" />
+         </font></Button>
    </children>
 </AnchorPane>
