@@ -86,7 +86,7 @@ public class Chamado {
 	}
 	
 	public void chamadosCliente(AnchorPane scrollBox) {
-		String sql = "select id, categoria, descricao, endereco, status from chamados where usuario_id='"+SessaoUsuario.getInstance().getId()+"'";
+		String sql = "select id, categoria, descricao, endereco, status from chamados where usuario_id='"+SessaoUsuario.getInstance().getId()+"' ORDER BY CASE WHEN status = 'Em andamento' THEN 1 WHEN status = 'Aberto' THEN 2 WHEN status = 'Finalizado' THEN 3 ELSE 4 END;";
 		
 		Sql bd = new Sql();
 		try {
@@ -117,7 +117,7 @@ public class Chamado {
 	}
 	
 	public void chamadosAceitos(AnchorPane scrollBox) {
-		String sql = "select id, categoria, descricao, endereco, status from chamados where status='Em andamento' and fornecedor_id='"+SessaoFornecedor.getInstance().getId()+"'";
+		String sql = "select id, categoria, descricao, endereco, status from chamados where fornecedor_id='"+SessaoFornecedor.getInstance().getId()+"' ORDER BY CASE WHEN status = 'Em andamento' THEN 1 WHEN status = 'Finalizado' THEN 2 ELSE 3 END;";
 		
 		Sql bd = new Sql();
 		
@@ -282,6 +282,7 @@ try {
 			    	
 			    	areaEndereco.wrapTextProperty().set(true);
 			    	areaEndereco.editableProperty().set(false);
+			    	areaEndereco.setStyle("-fx-alignment: center;");
 			    	
 			    	
 			    	areaDescricao.addEventFilter(MouseEvent.MOUSE_PRESSED, event -> {
@@ -348,6 +349,7 @@ try {
 		Sql bd = new Sql();
 		bd.conectar();
 		Janela janela = new Janela();
+		
 		bd.insertQuery("update chamados set status='Em andamento', fornecedor_id='"+SessaoFornecedor.getInstance().getId()+"' where id='"+id+"'");
 		janela.novaJanela(elemento, "../gui/MenuPrestadorServiço.fxml", "Menu");
 	}
