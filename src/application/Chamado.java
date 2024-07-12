@@ -145,8 +145,8 @@ try {
 	
     		
     		int moveY = 162;
-    		int paneHeight = 400;
-    		int space = 0;
+    		int alturaCaixa = 400;
+    		
     		int tamanho = 0;
     		
     		while(res.next()) {
@@ -325,7 +325,7 @@ try {
 			        dropShadow.setColor(paint);
 			        scrollBox.setEffect(dropShadow);
 			        
-			        tamanho += paneHeight + space;
+			        tamanho += alturaCaixa;
 			        scrollBox.setEffect(dropShadow);
 			    	
 			    	scrollBox.getChildren().add(caixa);
